@@ -18,11 +18,22 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30);
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Close mobile menu on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isMobileMenuOpen]);
 
   const navItems = [
     { id: 'home', label: 'Home' },
@@ -43,14 +54,17 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <header className="sticky top-0 z-40 w-full bg-navy-800 border-b border-navy-700/80 shadow-card transition-all duration-200">
-      {/* Top Utility Tier (Desktop & Tablet) */}
+      {/* Top Utility Bar (Desktop & Tablet) */}
       <div className="bg-navy-950 text-slate-300 text-xs py-1.5 px-4 hidden sm:block border-b border-navy-800/80">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="flex items-center gap-5">
-            <span className="flex items-center gap-1.5 text-slate-300 font-medium">
+          <div className="flex items-center gap-4">
+            <a
+              href={`tel:${siteConfig.contact.phoneSecondary.replace(/[^0-9+]/g, '')}`}
+              className="flex items-center gap-1.5 text-slate-300 hover:text-white transition-colors"
+            >
               <Phone className="w-3.5 h-3.5 text-gold-400" />
               <span>Admissions Desk: <strong className="text-white">{siteConfig.contact.phoneSecondary}</strong></span>
-            </span>
+            </a>
             <span className="text-slate-600">|</span>
             <span className="text-slate-400 hidden md:inline">
               Campus: {siteConfig.location.city}, {siteConfig.location.state}
@@ -68,31 +82,31 @@ export const Navbar: React.FC<NavbarProps> = ({
       {/* Main Navigation Tier */}
       <nav
         aria-label="Main Navigation"
-        className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between transition-all duration-200 ${
-          isScrolled ? 'py-3' : 'py-4'
+        className={`max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 flex items-center justify-between transition-all duration-200 ${
+          isScrolled ? 'py-2.5 sm:py-3' : 'py-3 sm:py-4'
         }`}
       >
         {/* Brand Crest & School Title */}
         <button
           onClick={() => handleLinkClick('home')}
-          className="flex items-center gap-3.5 text-left group focus:outline-none focus:ring-2 focus:ring-gold-400 rounded-lg p-0.5"
+          className="flex items-center gap-2.5 sm:gap-3.5 text-left group focus:outline-none focus:ring-2 focus:ring-gold-400 rounded-lg p-1 min-h-[44px]"
         >
           {/* Architectural Crest Shield */}
-          <div className="w-11 h-11 sm:w-12 sm:h-12 bg-navy-950 rounded-lg border border-gold-400/50 flex items-center justify-center flex-shrink-0 group-hover:border-gold-400 transition-colors shadow-sm">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 bg-navy-950 rounded-lg border border-gold-400/50 flex items-center justify-center flex-shrink-0 group-hover:border-gold-400 transition-colors shadow-sm">
             <div className="flex flex-col items-center justify-center leading-none">
-              <Shield className="w-3.5 h-3.5 text-gold-400 mb-0.5" />
-              <span className="font-serif font-black text-xs sm:text-sm tracking-wider text-gold-300">
+              <Shield className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-gold-400 mb-0.5" />
+              <span className="font-serif font-black text-[11px] sm:text-sm tracking-wider text-gold-300">
                 {siteConfig.monogram}
               </span>
             </div>
           </div>
 
-          {/* School Name & Affiliation Metadata */}
-          <div className="flex flex-col">
-            <span className="font-serif font-bold text-lg sm:text-xl text-white tracking-tight leading-snug group-hover:text-gold-300 transition-colors">
+          {/* School Name & Affiliation Metadata with responsive font sizes */}
+          <div className="flex flex-col min-w-0">
+            <span className="font-serif font-bold text-[15px] sm:text-lg lg:text-xl text-white tracking-tight leading-snug group-hover:text-gold-300 transition-colors truncate max-w-[200px] xs:max-w-[260px] sm:max-w-none">
               {siteConfig.name}
             </span>
-            <span className="text-[11px] text-slate-300 font-medium tracking-agency uppercase">
+            <span className="text-[10px] sm:text-[11px] text-slate-300 font-medium tracking-agency uppercase truncate">
               Dholpur, Rajasthan • Estd. 2014
             </span>
           </div>
@@ -106,7 +120,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <button
                 key={item.id}
                 onClick={() => handleLinkClick(item.id)}
-                className={`px-3 py-1.5 rounded text-sm font-medium transition-colors relative focus:outline-none focus:ring-2 focus:ring-gold-400 ${
+                className={`px-3 py-2 rounded text-sm font-medium transition-colors relative min-h-[40px] focus:outline-none focus:ring-2 focus:ring-gold-400 ${
                   isActive
                     ? 'text-gold-300 font-semibold'
                     : 'text-slate-200 hover:text-white'
@@ -122,21 +136,21 @@ export const Navbar: React.FC<NavbarProps> = ({
           })}
         </div>
 
-        {/* Right Action: Enquire Now & Mobile Toggle */}
-        <div className="flex items-center gap-3">
+        {/* Right Action: Enquire Now & Mobile Toggle with accessible touch target (min 44x44px) */}
+        <div className="flex items-center gap-2 sm:gap-3">
           <button
             onClick={onOpenEnquiry}
-            className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded bg-gold-400 hover:bg-gold-500 text-navy-950 font-bold text-xs uppercase tracking-wider transition-all duration-150 shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold-400 focus:ring-offset-navy-800"
+            className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded bg-gold-400 hover:bg-gold-500 text-navy-950 font-bold text-xs uppercase tracking-wider transition-all duration-150 shadow-sm min-h-[44px] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold-400 focus:ring-offset-navy-800"
           >
             <span>Enquire Now</span>
             <ArrowRight className="w-3.5 h-3.5 text-navy-950" />
           </button>
 
-          {/* Mobile Hamburger Menu Button */}
+          {/* Mobile Hamburger Menu Button with guaranteed 44x44px touch target */}
           <button
             type="button"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 rounded text-slate-200 hover:text-white hover:bg-navy-700 focus:outline-none focus:ring-2 focus:ring-gold-400"
+            className="lg:hidden w-11 h-11 flex items-center justify-center rounded-lg text-slate-200 hover:text-white hover:bg-navy-700/80 active:bg-navy-900 focus:outline-none focus:ring-2 focus:ring-gold-400 transition"
             aria-expanded={isMobileMenuOpen}
             aria-label="Toggle navigation menu"
           >
@@ -149,9 +163,9 @@ export const Navbar: React.FC<NavbarProps> = ({
         </div>
       </nav>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer with Thumb-friendly Touch Targets (>= 48px each) */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-navy-950 border-t border-navy-800 px-4 pt-3 pb-6 animate-fade-in shadow-dropdown">
+        <div className="lg:hidden bg-navy-950 border-t border-navy-800 px-4 pt-3 pb-8 animate-fade-in shadow-dropdown max-h-[calc(100vh-68px)] overflow-y-auto">
           <div className="space-y-1">
             {navItems.map((item) => {
               const isActive = activeSection === item.id;
@@ -159,34 +173,42 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <button
                   key={item.id}
                   onClick={() => handleLinkClick(item.id)}
-                  className={`w-full text-left px-3.5 py-2.5 rounded text-sm font-medium flex items-center justify-between ${
+                  className={`w-full text-left px-4 py-3 rounded-lg text-base font-medium flex items-center justify-between min-h-[48px] active:bg-navy-800 transition ${
                     isActive
-                      ? 'bg-navy-900 text-gold-300 font-bold border-l-2 border-gold-400'
+                      ? 'bg-navy-900 text-gold-300 font-bold border-l-4 border-gold-400'
                       : 'text-slate-200 hover:bg-navy-900 hover:text-white'
                   }`}
                 >
                   <span>{item.label}</span>
-                  {isActive && <span className="text-gold-400 text-xs">Active</span>}
+                  {isActive && <span className="text-gold-400 text-xs font-semibold uppercase tracking-wider">Active</span>}
                 </button>
               );
             })}
           </div>
 
-          <div className="mt-5 pt-4 border-t border-navy-800 space-y-3">
+          <div className="mt-5 pt-5 border-t border-navy-800 space-y-3.5">
             <button
               onClick={() => {
                 setIsMobileMenuOpen(false);
                 onOpenEnquiry();
               }}
-              className="w-full py-3 px-4 rounded bg-gold-400 hover:bg-gold-500 text-navy-950 font-bold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-sm"
+              className="w-full py-3.5 px-4 rounded-lg bg-gold-400 hover:bg-gold-500 text-navy-950 font-bold text-xs uppercase tracking-agency text-center flex items-center justify-center gap-2 shadow-sm min-h-[48px] active:scale-[0.99] transition"
             >
               <span>Admission Enquiry (2026-27)</span>
               <ArrowRight className="w-4 h-4" />
             </button>
 
-            <div className="p-3 rounded bg-navy-900 text-xs text-slate-300 text-center border border-navy-800">
-              <span className="block font-semibold text-gold-400">Admissions Helpline (Sample)</span>
-              <span>{siteConfig.contact.phoneSecondary}</span>
+            <div className="p-3.5 rounded-lg bg-navy-900 text-xs text-slate-300 text-center border border-navy-800">
+              <span className="block font-bold text-gold-400 text-xs tracking-agency uppercase mb-0.5">
+                Admissions Helpline (Sample)
+              </span>
+              <a
+                href={`tel:${siteConfig.contact.phoneSecondary.replace(/[^0-9+]/g, '')}`}
+                className="text-white font-semibold text-sm hover:underline block py-1"
+              >
+                {siteConfig.contact.phoneSecondary}
+              </a>
+              <span className="text-[11px] text-slate-400">8:00 AM – 3:30 PM (Mon to Sat)</span>
             </div>
           </div>
         </div>

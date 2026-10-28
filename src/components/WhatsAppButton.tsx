@@ -24,7 +24,7 @@ export const WhatsAppButton: React.FC = () => {
   return (
     <>
       {/* Floating Action Button */}
-      <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end">
+      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 flex flex-col items-end">
         {/* Subtle tooltip on hover */}
         <div className="hidden sm:block mb-2 px-3 py-1 bg-navy-950/90 text-white text-xs rounded-full shadow-lg border border-navy-700/60 opacity-90 hover:opacity-100 transition pointer-events-none">
           <span className="text-emerald-400 font-semibold">● Online:</span> Chat on WhatsApp (Demo)

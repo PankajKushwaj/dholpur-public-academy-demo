@@ -57,7 +57,7 @@ export const NoticesSection: React.FC = () => {
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-3.5 py-1.5 rounded text-xs font-semibold transition ${
+                  className={`px-3.5 py-2 rounded text-xs font-semibold transition min-h-[40px] flex items-center justify-center ${
                     isActive
                       ? 'bg-navy-900 text-gold-300 font-bold shadow-sm'
                       : 'bg-white hover:bg-slate-100 text-slate-700 border border-slate-200'
@@ -69,7 +69,7 @@ export const NoticesSection: React.FC = () => {
             })}
           </div>
 
-          {/* Search Box */}
+          {/* Search Box - 16px text-base on mobile prevents iOS auto-zoom */}
           <div className="relative w-full md:w-72">
             <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
             <input
@@ -77,7 +77,7 @@ export const NoticesSection: React.FC = () => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search circulars..."
-              className="w-full pl-9 pr-4 py-2 rounded-lg bg-white border border-slate-300 text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-navy-900"
+              className="w-full pl-9 pr-4 py-2.5 rounded-lg bg-white border border-slate-300 text-base sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-navy-900 min-h-[44px]"
             />
           </div>
         </div>
