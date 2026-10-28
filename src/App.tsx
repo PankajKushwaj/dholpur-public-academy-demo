@@ -136,10 +136,10 @@ export const App: React.FC = () => {
       <div className="fixed bottom-6 left-6 z-30 hidden sm:block">
         <button
           onClick={() => setIsDeveloperModalOpen(true)}
-          className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-navy-900/95 hover:bg-navy-900 text-slate-200 hover:text-white border border-navy-700/80 shadow-soft-md backdrop-blur-md transition-all duration-200 group text-xs font-semibold"
+          className="flex items-center gap-2 px-3.5 py-2 rounded bg-navy-950 hover:bg-navy-900 text-slate-200 hover:text-white border border-navy-700 shadow-card transition-all duration-150 group text-[11px] font-bold uppercase tracking-agency"
           title="Designed by Pankaj | Click to discuss website design for your school"
         >
-          <span className="w-2 h-2 rounded-full bg-gold-400 group-hover:scale-125 transition-transform"></span>
+          <span className="w-2 h-2 rounded-full bg-gold-400"></span>
           <span>Website Concept by Pankaj</span>
           <ArrowUpRight className="w-3.5 h-3.5 text-gold-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
         </button>

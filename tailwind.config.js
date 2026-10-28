@@ -8,17 +8,17 @@ export default {
     extend: {
       colors: {
         navy: {
-          50: '#F0F4FA',
-          100: '#D9E2F2',
-          200: '#B3C6E5',
-          300: '#8DA9D8',
-          400: '#5A83C4',
-          500: '#2E5EA6',
-          600: '#1F4782',
-          700: '#1A3968',
-          800: '#142B4F', // Core Navy
-          900: '#0D1D36',
-          950: '#070F1C',
+          50: '#F4F7FB',
+          100: '#E6EDF5',
+          200: '#C7D6E8',
+          300: '#9FB9D6',
+          400: '#648FB9',
+          500: '#3B6B9B',
+          600: '#264E78',
+          700: '#1C3B5E',
+          800: '#142B4F', // Core Navy (#142B4F)
+          900: '#0E1F3A',
+          950: '#081223',
         },
         royal: {
           50: '#EFF6FF',
@@ -27,39 +27,42 @@ export default {
           300: '#93C5FD',
           400: '#60A5FA',
           500: '#3B82F6',
-          600: '#2563EB', // Core Royal Blue
+          600: '#2563EB', // Core Royal Blue (#2563EB)
           700: '#1D4ED8',
           800: '#1E40AF',
-          900: '#1E3A8A',
+          900: '#172554',
         },
         gold: {
-          50: '#FEF9EC',
-          100: '#FDF2D0',
-          200: '#FBE4A1',
-          300: '#F8D46E',
-          400: '#F4B942', // Core Gold
-          500: '#E29E20',
-          600: '#B97914',
-          700: '#8A5611',
-          800: '#5C3810',
-          900: '#38210A',
+          50: '#FDFBF5',
+          100: '#FAF4E4',
+          200: '#F5E7C2',
+          300: '#F0D597',
+          400: '#F4B942', // Core Gold (#F4B942)
+          500: '#DFA32B',
+          600: '#B87E18',
+          700: '#8A5C10',
+          800: '#5F3E0C',
+          900: '#3A2506',
         },
         surface: {
           DEFAULT: '#F5F7FB',
-          light: '#FFFFFF',
           card: '#FFFFFF',
-          subtle: '#EEF2F9',
+          muted: '#EEF2F8',
+          border: '#E2E8F0',
         }
       },
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
-        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+        sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        serif: ['"Playfair Display"', 'Georgia', 'Cambria', 'serif'],
+      },
+      letterSpacing: {
+        agency: '0.18em',
+        subtle: '0.04em',
       },
       boxShadow: {
-        'soft-sm': '0 2px 8px -1px rgba(20, 43, 79, 0.06), 0 1px 4px -1px rgba(20, 43, 79, 0.04)',
-        'soft-md': '0 6px 20px -2px rgba(20, 43, 79, 0.08), 0 3px 8px -2px rgba(20, 43, 79, 0.04)',
-        'soft-xl': '0 15px 35px -5px rgba(20, 43, 79, 0.12), 0 8px 16px -6px rgba(20, 43, 79, 0.06)',
-        'gold-glow': '0 4px 20px rgba(244, 185, 66, 0.35)',
+        'card': '0 1px 3px 0 rgba(20, 43, 79, 0.04), 0 1px 2px -1px rgba(20, 43, 79, 0.03)',
+        'card-hover': '0 10px 25px -3px rgba(20, 43, 79, 0.08), 0 4px 10px -2px rgba(20, 43, 79, 0.04)',
+        'dropdown': '0 14px 34px -4px rgba(20, 43, 79, 0.12), 0 4px 12px -2px rgba(20, 43, 79, 0.06)',
       }
     },
   },

@@ -5,13 +5,21 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
     background-color: #F5F7FB;
     color: #142B4F;
     overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+    letter-spacing: -0.015em;
   }
 
   /* Accessible focus indicators */
@@ -22,13 +30,28 @@
 }
 
 @layer utilities {
-  .bg-radial-hero {
-    background: radial-gradient(circle at 50% 20%, rgba(37, 99, 235, 0.15), transparent 70%),
-                radial-gradient(circle at 80% 80%, rgba(244, 185, 66, 0.08), transparent 60%),
-                #142B4F;
-  }
-
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Architectural hairline rules used by top design agencies */
+  .hairline-gold {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #F4B942, transparent);
+  }
+
+  .hairline-navy {
+    height: 1px;
+    background: #E2E8F0;
+  }
+
+  .editorial-quote::before {
+    content: "“";
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 4rem;
+    line-height: 1;
+    color: #F4B942;
+    display: block;
+    margin-bottom: -1.5rem;
   }
 }

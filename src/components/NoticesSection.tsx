@@ -27,39 +27,39 @@ export const NoticesSection: React.FC = () => {
   };
 
   return (
-    <section id="notices" className="py-20 bg-white scroll-mt-20 border-b border-slate-200">
+    <section id="notices" className="py-24 bg-white scroll-mt-16 border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-gold-100 text-amber-900 border border-gold-300 mb-3">
-            <Bell className="w-3.5 h-3.5 text-amber-700" />
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded text-xs font-bold tracking-agency uppercase bg-navy-100 text-navy-900 border border-navy-200 mb-3">
+            <Bell className="w-3.5 h-3.5 text-royal-600" />
             <span>CIRCULARS & ANNOUNCEMENTS</span>
           </div>
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-navy-950 mb-4">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-navy-950 mb-4 tracking-tight">
             Notice Board & Academy Updates
           </h2>
           <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
             Stay informed with the latest school circulars, academic schedules, admissions notifications, and event announcements.
           </p>
-          <div className="mt-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-amber-100 text-amber-900 border border-amber-300">
-            <Sparkles className="w-3 h-3 text-amber-600" />
+          <div className="mt-4 inline-flex items-center gap-1.5 px-3 py-1 rounded text-xs font-semibold bg-navy-900 text-gold-400 border border-gold-400/30">
+            <Sparkles className="w-3.5 h-3.5 text-gold-400" />
             <span>All notices below are SAMPLE placeholders with demonstration dates</span>
           </div>
         </div>
 
         {/* Search & Category Filter Controls */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-8 bg-surface p-4 rounded-2xl border border-slate-200">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-8 bg-surface p-4 sm:p-5 rounded-xl border border-slate-200">
           {/* Category Tabs */}
-          <div className="flex flex-wrap gap-1.5 w-full md:w-auto">
+          <div className="flex flex-wrap gap-2 w-full md:w-auto">
             {categories.map((cat) => {
               const isActive = selectedCategory === cat;
               return (
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition ${
+                  className={`px-3.5 py-1.5 rounded text-xs font-semibold transition ${
                     isActive
-                      ? 'bg-navy-900 text-gold-300 shadow-sm'
+                      ? 'bg-navy-900 text-gold-300 font-bold shadow-sm'
                       : 'bg-white hover:bg-slate-100 text-slate-700 border border-slate-200'
                   }`}
                 >
@@ -77,21 +77,21 @@ export const NoticesSection: React.FC = () => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search circulars..."
-              className="w-full pl-9 pr-4 py-1.5 rounded-lg bg-white border border-slate-300 text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-royal-500"
+              className="w-full pl-9 pr-4 py-2 rounded-lg bg-white border border-slate-300 text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-navy-900"
             />
           </div>
         </div>
 
         {downloadFeedback && (
-          <div className="mb-6 p-3 rounded-xl bg-royal-50 border border-royal-200 text-royal-900 text-xs flex items-center gap-2 animate-fade-in">
-            <Sparkles className="w-4 h-4 text-royal-600 flex-shrink-0" />
+          <div className="mb-6 p-4 rounded-lg bg-navy-900 text-gold-300 text-xs flex items-center gap-2.5 animate-fade-in border border-navy-800">
+            <Sparkles className="w-4 h-4 text-gold-400 flex-shrink-0" />
             <span>{downloadFeedback}</span>
           </div>
         )}
 
         {/* Notices Cards List */}
         {filteredNotices.length === 0 ? (
-          <div className="text-center py-12 bg-surface rounded-2xl border border-slate-200">
+          <div className="text-center py-14 bg-surface rounded-xl border border-slate-200">
             <p className="text-slate-500 text-sm">No circulars matched your search criteria.</p>
           </div>
         ) : (
@@ -99,11 +99,11 @@ export const NoticesSection: React.FC = () => {
             {filteredNotices.map((notice) => (
               <div
                 key={notice.id}
-                className="bg-surface hover:bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 hover:border-slate-300 shadow-soft-sm hover:shadow-soft-md transition-all duration-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4 group"
+                className="bg-surface hover:bg-white p-6 rounded-xl border border-slate-200 shadow-card hover:shadow-card-hover transition-all duration-200 flex flex-col sm:flex-row sm:items-center justify-between gap-5 group"
               >
                 <div className="space-y-2 max-w-3xl">
                   <div className="flex items-center gap-2 flex-wrap">
-                    <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-slate-500">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500">
                       <Calendar className="w-3.5 h-3.5 text-royal-600" />
                       {notice.date}
                     </span>
@@ -116,24 +116,24 @@ export const NoticesSection: React.FC = () => {
                         Urgent Circular
                       </span>
                     )}
-                    <span className="text-[10px] font-semibold text-amber-800 bg-amber-100 px-2 py-0.5 rounded">
+                    <span className="text-[10px] font-semibold text-slate-600 bg-slate-200 px-2 py-0.5 rounded">
                       DEMO NOTICE
                     </span>
                   </div>
 
-                  <h3 className="font-serif text-lg font-bold text-navy-950 group-hover:text-royal-600 transition-colors">
+                  <h3 className="font-serif text-lg sm:text-xl font-bold text-navy-950 group-hover:text-royal-600 transition-colors">
                     {notice.title}
                   </h3>
 
-                  <p className="text-slate-600 text-xs sm:text-sm line-clamp-2">
+                  <p className="text-slate-600 text-xs sm:text-sm line-clamp-2 leading-relaxed">
                     {notice.content}
                   </p>
                 </div>
 
-                <div className="flex sm:flex-col items-center sm:items-end justify-between gap-2 flex-shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-slate-100">
+                <div className="flex sm:flex-col items-center sm:items-end justify-between gap-2.5 flex-shrink-0 pt-3 sm:pt-0 border-t sm:border-t-0 border-slate-200">
                   <button
                     onClick={() => setActiveNoticeModal(notice)}
-                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-navy-900 hover:bg-navy-800 text-gold-300 font-semibold text-xs transition"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded bg-navy-900 hover:bg-navy-800 text-gold-300 font-bold text-xs uppercase tracking-agency transition"
                   >
                     <span>Read Circular</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
@@ -142,7 +142,7 @@ export const NoticesSection: React.FC = () => {
                   {notice.fileLabel && (
                     <button
                       onClick={() => handleDemoDownload(notice.fileLabel!)}
-                      className="inline-flex items-center gap-1 text-[11px] text-royal-600 hover:text-royal-800 font-medium transition"
+                      className="inline-flex items-center gap-1 text-[11px] text-royal-600 hover:text-royal-800 font-bold tracking-agency uppercase transition"
                     >
                       <Download className="w-3 h-3" />
                       <span>Sample PDF</span>
@@ -161,12 +161,12 @@ export const NoticesSection: React.FC = () => {
             onClick={() => setActiveNoticeModal(null)}
           >
             <div
-              className="bg-white rounded-2xl max-w-xl w-full p-6 sm:p-8 shadow-2xl relative"
+              className="bg-white rounded-xl max-w-xl w-full p-6 sm:p-8 shadow-dropdown relative border border-slate-200"
               onClick={(e) => e.stopPropagation()}
             >
               <button
                 onClick={() => setActiveNoticeModal(null)}
-                className="absolute top-4 right-4 p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 transition"
+                className="absolute top-5 right-5 p-2 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 transition"
                 aria-label="Close modal"
               >
                 <X className="w-5 h-5" />
@@ -176,25 +176,25 @@ export const NoticesSection: React.FC = () => {
                 <span className="px-2.5 py-0.5 rounded text-xs font-bold uppercase bg-royal-100 text-royal-800">
                   {activeNoticeModal.category}
                 </span>
-                <span className="text-xs text-slate-500 flex items-center gap-1">
+                <span className="text-xs text-slate-500 font-medium flex items-center gap-1">
                   <Calendar className="w-3 h-3" />
                   {activeNoticeModal.date}
                 </span>
               </div>
 
-              <h3 className="font-serif text-xl sm:text-2xl font-bold text-navy-950 mb-4">
+              <h3 className="font-serif text-xl sm:text-2xl font-bold text-navy-950 mb-4 tracking-tight">
                 {activeNoticeModal.title}
               </h3>
 
-              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 text-sm leading-relaxed mb-6">
+              <div className="p-5 rounded-lg bg-surface border border-slate-200 text-slate-700 text-sm leading-relaxed mb-6">
                 {activeNoticeModal.content}
               </div>
 
-              <div className="p-3.5 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-900 mb-6 flex items-start gap-2">
-                <AlertCircle className="w-4 h-4 text-amber-700 mt-0.5 flex-shrink-0" />
+              <div className="p-4 rounded-lg bg-navy-900 text-white text-xs mb-6 flex items-start gap-2.5 border border-navy-800">
+                <AlertCircle className="w-4 h-4 text-gold-400 mt-0.5 flex-shrink-0" />
                 <div>
-                  <strong>Demonstration Notice Only:</strong>
-                  <p className="mt-0.5">
+                  <strong className="text-gold-400 block mb-0.5">Demonstration Notice Only:</strong>
+                  <p className="text-slate-300">
                     When you launch this website for your school, your administrative staff will easily publish real dates, PDF circulars, and notifications through the simple admin control.
                   </p>
                 </div>
@@ -207,7 +207,7 @@ export const NoticesSection: React.FC = () => {
                       handleDemoDownload(activeNoticeModal.fileLabel!);
                       setActiveNoticeModal(null);
                     }}
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-royal-600 hover:bg-royal-500 text-white font-semibold text-xs shadow-sm transition"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded bg-royal-600 hover:bg-royal-700 text-white font-semibold text-xs uppercase tracking-agency shadow-sm transition"
                   >
                     <Download className="w-3.5 h-3.5" />
                     <span>{activeNoticeModal.fileLabel}</span>
@@ -216,7 +216,7 @@ export const NoticesSection: React.FC = () => {
 
                 <button
                   onClick={() => setActiveNoticeModal(null)}
-                  className="px-4 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold transition"
+                  className="px-5 py-2 rounded bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold transition"
                 >
                   Close
                 </button>

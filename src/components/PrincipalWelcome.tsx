@@ -1,46 +1,44 @@
 import React from 'react';
-import { Quote, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Quote, CheckCircle2 } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 
 export const PrincipalWelcome: React.FC = () => {
   return (
-    <section className="py-16 sm:py-20 bg-white border-b border-slate-200">
+    <section className="py-20 sm:py-24 bg-white border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-surface rounded-2xl border border-slate-200 p-6 sm:p-10 lg:p-12 shadow-soft-sm relative overflow-hidden">
+        <div className="bg-surface rounded-xl border border-slate-200 p-8 sm:p-12 lg:p-14 relative shadow-card">
           {/* Sample Label Badge */}
-          <div className="absolute top-4 right-4 sm:top-6 sm:right-6">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-900 border border-amber-300">
-              <Sparkles className="w-3.5 h-3.5 text-amber-700" />
+          <div className="absolute top-6 right-6">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded text-[11px] font-bold tracking-agency uppercase bg-navy-950 text-gold-400 border border-gold-400/40">
               SAMPLE PRINCIPAL'S WELCOME (DEMO)
             </span>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Principal Photo & Credential Column */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            {/* Principal Photo Column */}
             <div className="lg:col-span-4 flex flex-col items-center text-center">
-              <div className="relative w-48 h-48 sm:w-56 sm:h-56 rounded-2xl overflow-hidden shadow-soft-md border-4 border-white mb-4">
+              <div className="relative w-48 h-48 sm:w-56 sm:h-56 rounded-lg overflow-hidden border-2 border-slate-200 shadow-sm mb-5 p-1 bg-white">
                 <img
                   src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=600&q=80"
                   alt="Principal Dr. R. K. Sharma (Sample)"
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-top rounded"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 via-transparent to-transparent"></div>
               </div>
 
               <div className="space-y-1">
-                <h3 className="font-serif text-xl font-bold text-navy-900">
+                <h3 className="font-serif text-xl font-bold text-navy-900 tracking-tight">
                   Dr. R. K. Sharma, Ph.D.
                 </h3>
-                <p className="text-xs uppercase tracking-wider font-semibold text-royal-600">
+                <p className="text-xs uppercase tracking-agency font-bold text-royal-600">
                   Principal & Academic Director (Sample)
                 </p>
-                <p className="text-xs text-slate-500">
-                  M.Sc. (Physics), B.Ed., 22+ Yrs Educational Leadership
+                <p className="text-xs text-slate-500 font-medium">
+                  M.Sc. (Physics), B.Ed., 22+ Years Educational Leadership
                 </p>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-slate-200 w-full text-center">
-                <span className="text-xs italic text-slate-400 font-serif">
+              <div className="mt-5 pt-3 border-t border-slate-200 w-full text-center">
+                <span className="text-xs italic text-slate-500 font-serif">
                   "Leading with empathy, teaching with passion."
                 </span>
               </div>
@@ -49,13 +47,13 @@ export const PrincipalWelcome: React.FC = () => {
             {/* Principal's Message Text Column */}
             <div className="lg:col-span-8">
               <div className="flex items-center gap-2 mb-3">
-                <Quote className="w-8 h-8 text-gold-400/80 -scale-x-100" />
-                <span className="text-xs uppercase tracking-widest font-bold text-navy-800">
+                <Quote className="w-6 h-6 text-gold-500 -scale-x-100" />
+                <span className="text-xs uppercase tracking-agency font-bold text-navy-800">
                   Welcome from the Principal's Desk
                 </span>
               </div>
 
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-navy-950 mb-4 leading-tight">
+              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-navy-950 mb-5 leading-snug">
                 "Every child carries unique potential waiting to be ignited."
               </h2>
 
@@ -64,22 +62,22 @@ export const PrincipalWelcome: React.FC = () => {
                   Dear Parents, Guardians, and Valued Visitors,
                 </p>
                 <p>
-                  It gives me profound pleasure to welcome you to <strong>{siteConfig.name}</strong>, a learning community anchored in the heart of Dholpur, dedicated to nurturing intellectually grounded, morally courageous, and socially responsible citizens.
+                  It gives me profound pleasure to welcome you to <strong>{siteConfig.name}</strong>, a learning community anchored in the heart of Dholpur, dedicated to nurturing intellectually grounded, morally courageous, and socially responsible young citizens.
                 </p>
                 <p>
-                  In an era defined by rapid technological and social transformation, rote memorization no longer suffices. Our academic framework integrates conceptual clarity with creative exploration, sportsmanship, and cultural reverence. Here, questions are celebrated, mistakes are treated as milestones, and each student is recognized as an individual.
+                  In an era defined by rapid technological and social transformation, rote memorization no longer suffices. Our academic framework integrates conceptual clarity with creative exploration, sportsmanship, and cultural reverence. Here, questions are celebrated, mistakes are treated as learning milestones, and each student is recognized as an individual.
                 </p>
                 <p className="hidden sm:block">
                   We look forward to partnering with parents to build a supportive ecosystem where your child discovers their strengths and graduates prepared to make meaningful contributions to the world.
                 </p>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4">
-                <div className="flex items-center gap-2 text-xs text-slate-600">
+              <div className="mt-8 pt-5 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4">
+                <div className="flex items-center gap-2 text-xs text-slate-600 font-medium">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                   <span>Open Parent Communication & Weekly Consultation Hours</span>
                 </div>
-                <div className="font-serif italic font-medium text-navy-900 text-sm">
+                <div className="font-serif italic font-semibold text-navy-900 text-sm">
                   — Office of the Principal, DPA Dholpur
                 </div>
               </div>
