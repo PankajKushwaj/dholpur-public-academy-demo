@@ -190,3 +190,4 @@ export const siteConfig = {
 
 ## 📄 License & Presentation Notice
 This project is an original demonstration concept engineered by **Pankaj** for presentations to school management, trustees, and principals.
+"# dholpur-public-academy-demo" 
