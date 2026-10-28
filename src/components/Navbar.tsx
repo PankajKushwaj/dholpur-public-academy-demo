@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Phone, ArrowRight, Shield, Calendar } from 'lucide-react';
+import { Menu, X, Phone, ArrowRight, Calendar } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 
 interface NavbarProps {
@@ -91,14 +91,13 @@ export const Navbar: React.FC<NavbarProps> = ({
           onClick={() => handleLinkClick('home')}
           className="flex items-center gap-2.5 sm:gap-3.5 text-left group focus:outline-none focus:ring-2 focus:ring-gold-400 rounded-lg p-1 min-h-[44px]"
         >
-          {/* Architectural Crest Shield */}
-          <div className="w-10 h-10 sm:w-12 sm:h-12 bg-navy-950 rounded-lg border border-gold-400/50 flex items-center justify-center flex-shrink-0 group-hover:border-gold-400 transition-colors shadow-sm">
-            <div className="flex flex-col items-center justify-center leading-none">
-              <Shield className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-gold-400 mb-0.5" />
-              <span className="font-serif font-black text-[11px] sm:text-sm tracking-wider text-gold-300">
-                {siteConfig.monogram}
-              </span>
-            </div>
+          {/* Official Emblem Logo */}
+          <div className="relative w-11 h-11 sm:w-13 sm:h-13 rounded-full overflow-hidden flex-shrink-0 border-2 border-gold-400 shadow-md bg-white p-0.5 group-hover:border-gold-300 transition-colors">
+            <img
+              src={siteConfig.logoUrl || "/logo.png"}
+              alt={`${siteConfig.name} Official Emblem`}
+              className="w-full h-full object-contain"
+            />
           </div>
 
           {/* School Name & Affiliation Metadata with responsive font sizes */}

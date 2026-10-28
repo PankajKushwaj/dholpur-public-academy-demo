@@ -4,8 +4,9 @@ export const siteConfig: SchoolConfig = {
   name: "Dholpur Public Academy",
   shortName: "DPA Dholpur",
   monogram: "DPA",
+  logoUrl: "/logo.png",
   tagline: "Empowering Minds, Shaping Tomorrow's Leaders",
-  motto: "Building Bright Futures, Inspiring Excellence",
+  motto: "Learn • Grow • Succeed",
   establishedYear: "2014 (Sample)",
   location: {
     city: "Dholpur",

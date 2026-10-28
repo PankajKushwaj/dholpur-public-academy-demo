@@ -2,6 +2,7 @@ export interface SchoolConfig {
   name: string;
   shortName: string;
   monogram: string;
+  logoUrl?: string;
   tagline: string;
   motto: string;
   establishedYear: string;

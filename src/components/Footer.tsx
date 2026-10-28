@@ -1,6 +1,6 @@
 import React from 'react';
 import { siteConfig } from '../config/siteConfig';
-import { Shield, Sparkles, MapPin, Phone, Mail, ArrowUp, Code2 } from 'lucide-react';
+import { Sparkles, MapPin, Phone, Mail, ArrowUp, Code2 } from 'lucide-react';
 
 interface FooterProps {
   onNavigate: (sectionId: string) => void;
@@ -27,8 +27,12 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Col 1: School Identity & Monogram */}
           <div className="lg:col-span-4 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 sm:w-11 h-10 sm:h-11 rounded-lg bg-navy-900 border border-gold-400/50 flex items-center justify-center text-gold-400 shadow-sm flex-shrink-0">
-                <Shield className="w-5 h-5 text-gold-400" />
+              <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-gold-400 bg-white p-0.5 shadow-sm flex-shrink-0">
+                <img
+                  src={siteConfig.logoUrl || "/logo.png"}
+                  alt={`${siteConfig.name} Official Emblem`}
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div>
                 <span className="font-serif font-bold text-base sm:text-xl text-white block leading-snug">
